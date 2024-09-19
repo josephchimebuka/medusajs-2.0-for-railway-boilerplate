@@ -1,9 +1,10 @@
 import { getCategoriesList } from "@lib/data/categories"
 import { getCollectionsList } from "@lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
-
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
+import Image from "next/image"
+import logo from '../../../../../public/Staples3.svg'
 
 export default async function Footer() {
   const { collections } = await getCollectionsList(0, 6)
@@ -18,7 +19,7 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Staples Store
+             <Image src={logo} alt={""} width={100} height={50}/>
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
@@ -83,7 +84,7 @@ export default async function Footer() {
             {collections && collections.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
+                  CollectionsWhether you're stocking up on essentials or ordering your favorite foodstuffs, we’re here to make it easy and convenient.
                 </span>
                 <ul
                   className={clx(
@@ -143,12 +144,7 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
-          </Text>
-          <MedusaCTA />
-        </div>
+       
       </div>
     </footer>
   )
