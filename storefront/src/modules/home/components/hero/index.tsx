@@ -10,7 +10,7 @@ const Hero = () => {
             level="h1"
             className="text-3xl leading-10 text-ui-fg-base font-normal"
           >
-         Welcome to Stayples! Your go-to destination for hassle-free grocery shopping. Whether you're stocking up on essentials or ordering your favorite foodstuffs, we’re here to make it easy and convenient. Let’s get started and make your shopping a breeze!
+         Welcome to Stayples! Your go-to destination for hassle-free grocery shopping.  Let’s get started and make your shopping a breeze!
           </Heading>
           
         </span>
