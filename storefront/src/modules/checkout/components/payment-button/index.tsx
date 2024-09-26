@@ -10,6 +10,7 @@ import Spinner from "@modules/common/icons/spinner"
 import { placeOrder } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import { isManual, isPaypal, isStripe } from "@lib/constants"
+import { PaystackButton } from "react-paystack"
 
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart
@@ -58,6 +59,15 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
           data-testid={dataTestId}
         />
       )
+
+      case isPaystack(paymentSession?.provider_id):
+        return (
+          <PaystackButton
+            notReady={notReady}
+            cart={cart}
+            data-testid={dataTestId}
+          />
+        )
     default:
       return <Button disabled>Select a payment method</Button>
   }

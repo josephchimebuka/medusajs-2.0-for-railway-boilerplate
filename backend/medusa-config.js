@@ -5,9 +5,17 @@ const isDev = process.env.NODE_ENV === 'development';
 loadEnv(process.env.NODE_ENV, process.cwd());
 
 const backendUrl = process.env.RAILWAY_PUBLIC_DOMAIN_VALUE || 'http://localhost:9000';
+const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
 
 const plugins = [
   // 'medusa-fulfillment-manual'
+
+  {
+    resolve: `medusa-payment-paystack`,
+    options: {
+      secret_key: PAYSTACK_SECRET_KEY,
+    },
+  },
 ];
 
 const modules = {
